@@ -1,1 +1,5 @@
-python-telegram-bot==20.7 mistralai==1.1.0 python-dotenv==1.0.1 flask==3.0.3 gunicorn==23.0.0
+python-telegram-bot==20.7
+mistralai==1.1.0
+python-dotenv==1.0.1
+flask==3.0.3
+gunicorn==23.0.0
