@@ -1,6 +1,6 @@
 import telegram
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
-from mistralai import Mistral
+from mistralai.client import MistralClient
 from dotenv import load_dotenv
 from flask import Flask, request
 import os
@@ -32,16 +32,13 @@ if not TELEGRAM_TOKEN or not MISTRAL_API_KEY or not WEBHOOK_URL:
     raise ValueError("Missing TELEGRAM_TOKEN, MISTRAL_API_KEY, or WEBHOOK_URL")
 
 # Initialize Mistral client
-client = Mistral(api_key=MISTRAL_API_KEY)
-
-# Initialize Telegram application
-application = Application.builder().token(TELEGRAM_TOKEN).build()
+client = MistralClient(api_key=MISTRAL_API_KEY)
 
 # Mistral API call
 def get_mistral_response(message):
     try:
         logger.info(f"Sending message to Mistral: {message}")
-        chat_response = client.chat.complete(
+        chat_response = client.chat(
             model="mistral-large-latest",
             messages=[{"role": "user", "content": message}]
         )
