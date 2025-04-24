@@ -2,3 +2,4 @@ python-telegram-bot==21.4
 mistralai==0.4.2
 python-dotenv==1.0.1
 httpx==0.27.0
+flask==3.0.3
