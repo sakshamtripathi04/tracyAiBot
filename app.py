@@ -44,7 +44,7 @@ def get_mistral_response(message):
         is_ownership_query = any(re.search(keyword, message.lower()) for keyword in ownership_keywords)
         if is_ownership_query:
             logger.info("Detected ownership-related query")
-            return "I'm Tracy, created by Team of 4 People At Grater Noida. Thanks to them for bringing me to life!"
+            return "I'm Tracy, created by Team of 4 People At Greater Noida. Thanks to them for bringing me to life!"
         logger.info(f"Sending message to Mistral: {message}")
         chat_response = client.chat(
             model="mistral-large-latest",
